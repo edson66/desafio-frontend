@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Teclado Mecânico",
+      "category": "Periféricos",
+      "price": 350.00,
+      "status": "Ativo"
+    },
+    {
+      "id": "2",
+      "name": "Monitor 144hz",
+      "category": "Monitores",
+      "price": 1200.00,
+      "status": "Inativo"
+    }
+  ]
+}
