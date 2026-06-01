@@ -1,0 +1,116 @@
+.list-container {
+  $primary: #5b6ee1;
+  $primary-dark: #4958d1;
+  $card-bg: #fbfdff;
+  $border: #e9eefb;
+  $input-border: #dbe8ff;
+  $label-color: #374151; // cinza esc
+  $muted: #6b7280;
+
+  max-width: 980px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid $border;
+  border-radius: 10px;
+  background-color: $card-bg;
+
+  h2 {
+    margin: 0 0 1.25rem;
+    color: $label-color;
+    text-align: center;
+  }
+
+  .filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid $border;
+    border-radius: 10px;
+    background: #ffffff;
+    flex-wrap: wrap;
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 180px;
+      min-width: 180px;
+
+      label {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: $muted;
+        font-size: 0.95rem;
+      }
+
+      input,
+      select {
+        padding: 0.8rem;
+        border: 1px solid $input-border;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: white;
+        color: #000;
+        transition: border-color 0.15s, box-shadow 0.15s;
+
+        &::placeholder {
+          color: #6b7280;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $primary;
+          box-shadow: 0 6px 18px rgba($primary, 0.08);
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    background: white;
+    border: 1px solid $border;
+    border-radius: 10px;
+
+    th,
+    td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eef2ff;
+    }
+
+    th {
+      background-color: #f7f9ff;
+      color: $label-color;
+      font-weight: 700;
+    }
+
+    tbody tr:hover {
+      background: #fafbff;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .btn-delete {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: background-color 0.15s, transform 0.08s;
+
+      &:hover {
+        background-color: #dc2626;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}

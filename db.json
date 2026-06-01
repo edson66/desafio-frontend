@@ -4,15 +4,23 @@
       "id": "1",
       "name": "Teclado Mecânico",
       "category": "Periféricos",
-      "price": 350.00,
+      "price": 350,
       "status": "Ativo"
     },
     {
       "id": "2",
       "name": "Monitor 144hz",
       "category": "Monitores",
-      "price": 1200.00,
+      "price": 1200,
       "status": "Inativo"
+    },
+    {
+      "name": "teclado",
+      "category": "Períferico",
+      "price": 12.5,
+      "status": "Ativo",
+      "id": "zVpNGzqbk1Q"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

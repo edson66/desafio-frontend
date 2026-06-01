@@ -1,11 +1,10 @@
 .form-container {
-  // Paleta personalizada
   $primary: #5b6ee1; // indigo
   $primary-dark: #4958d1;
   $card-bg: #fbfdff;
   $border: #e9eefb;
   $input-border: #dbe8ff;
-  $label-color: #374151;
+  $label-color: #374151; // cinza escuro
   $muted: #6b7280;
 
   max-width: 520px;
@@ -39,6 +38,11 @@
       border-radius: 6px;
       font-size: 1rem;
       background: white;
+      color: #000;
+
+      &::placeholder {
+        color: #6b7280;
+      }
 
       &:focus {
         outline: none;
