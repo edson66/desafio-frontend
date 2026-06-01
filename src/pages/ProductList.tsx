@@ -3,14 +3,17 @@ import axios from 'axios';
 import type { Product } from '../types/Product';
 import './ProductList.scss';
 import { Link } from 'react-router-dom';
+import { useFilterStore } from '../store/useFilterStore';
 
 export function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
 
-  const [categoryFilter, setCategoryFilter] = useState('');
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
-  const [statusFilter, setStatusFilter] = useState('');
+  const { 
+    categoryFilter, setCategoryFilter, 
+    minPrice, setMinPrice, 
+    maxPrice, setMaxPrice, 
+    statusFilter, setStatusFilter 
+  } = useFilterStore();
 
   useEffect(() => {
     fetchProducts();
