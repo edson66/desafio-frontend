@@ -112,5 +112,24 @@
         transform: translateY(-1px);
       }
     }
+    
+    .btn-edit {
+      background-color: $primary;
+      color: white;
+      border: none;
+      padding: 0.65rem 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-right: 0.5rem;
+      transition: background-color 0.15s, transform 0.08s;
+
+      &:hover {
+        background-color: $primary-dark;
+        transform: translateY(-1px);
+      }
+    }
   }
 }

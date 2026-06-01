@@ -1,15 +1,31 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './ProductForm.scss';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 export function ProductForm() {
   const navigate = useNavigate();
   
+  const { id } = useParams();
+
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [status, setStatus] = useState<'Ativo' | 'Inativo' | ''>('');
+
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:3001/products/${id}`)
+        .then(response => {
+          const product = response.data;
+          setName(product.name);
+          setCategory(product.category);
+          setPrice(product.price.toString());
+          setStatus(product.status);
+        })
+        .catch(error => console.error("Erro ao carregar produto:", error));
+    }
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +40,7 @@ export function ProductForm() {
       return;
     }
 
-    const newProduct = {
+    const payload = {
       name,
       category,
       price: Number(price),
@@ -32,8 +48,13 @@ export function ProductForm() {
     };
 
     try {
-      await axios.post('http://localhost:3001/products', newProduct);
-      alert("Produto salvo com sucesso!");
+      if (id) {
+        await axios.put(`http://localhost:3001/products/${id}`, payload);
+        alert("Produto atualizado com sucesso!");
+      } else {
+        await axios.post('http://localhost:3001/products', payload);
+        alert("Produto salvo com sucesso!");
+      }
       navigate('/');
     } catch (error) {
       console.error("Erro ao salvar:", error);
@@ -43,7 +64,7 @@ export function ProductForm() {
 
   return (
     <div className="form-container">
-      <h2>Cadastrar Produto</h2>
+      <h2>{id ? 'Editar Produto' : 'Cadastrar Produto'}</h2>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -97,7 +118,7 @@ export function ProductForm() {
             Cancelar
           </button>
           <button type="submit" className="btn-save">
-            Salvar Produto
+            {id ? 'Atualizar Produto' : 'Salvar Produto'}
           </button>
         </div>
       </form>

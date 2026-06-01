@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import type { Product } from '../types/Product';
 import './ProductList.scss';
+import { Link } from 'react-router-dom';
 
 export function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -110,6 +111,9 @@ export function ProductList() {
                 <td>R$ {Number(product.price).toFixed(2)}</td>
                 <td>{product.status}</td>
                 <td>
+                  <Link to={`/editar/${product.id}`} className="btn-edit">
+                    Editar
+                  </Link>
                   <button 
                     className="btn-delete" 
                     onClick={() => handleDelete(product.id)}

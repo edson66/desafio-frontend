@@ -1,11 +1,11 @@
 {
   "products": [
     {
-      "id": "1",
       "name": "Teclado Mecânico",
-      "category": "Periféricos",
+      "category": "Periférico",
       "price": 350,
-      "status": "Ativo"
+      "status": "Ativo",
+      "id": "1"
     },
     {
       "id": "2",
