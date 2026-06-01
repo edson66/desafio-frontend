@@ -4,6 +4,7 @@ import type { Product } from '../types/Product';
 import './ProductList.scss';
 import { Link } from 'react-router-dom';
 import { useFilterStore } from '../store/useFilterStore';
+import { filterProducts } from '../utils/filterUtils';
 
 export function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -42,16 +43,13 @@ export function ProductList() {
     }
   };
 
-  const filteredProducts = products.filter(product => {
-    const matchCategory = product.category.toLowerCase().includes(categoryFilter.toLowerCase());
-    const matchStatus = statusFilter === '' || product.status === statusFilter;
-    
-    const price = Number(product.price);
-    const matchMinPrice = minPrice === '' || price >= Number(minPrice);
-    const matchMaxPrice = maxPrice === '' || price <= Number(maxPrice);
-
-    return matchCategory && matchStatus && matchMinPrice && matchMaxPrice;
-  });
+  const filteredProducts = filterProducts(
+    products,
+    categoryFilter,
+    statusFilter,
+    minPrice,
+    maxPrice
+  );
 
   return (
     <div className="list-container">

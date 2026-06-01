@@ -1,17 +1,18 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { ProductList } from './pages/ProductList';
 import { ProductForm } from './pages/ProductForm';
+import './App.scss';
 
 function App() {
   
   return (
     <BrowserRouter>
-      <nav style={{ padding: '1rem', borderBottom: '1px solid #ccc' }}>
-        <Link to="/" style={{ marginRight: '15px' }}>Ver Produtos</Link>
-        <Link to="/cadastro">Novo Produto</Link>
+      <nav className="app-nav">
+        <Link to="/" className="nav-button">Ver Produtos</Link>
+        <Link to="/cadastro" className="nav-button">Novo Produto</Link>
       </nav>
 
-      <div style={{ padding: '20px' }}>
+      <div className="app-content">
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/cadastro" element={<ProductForm />} />

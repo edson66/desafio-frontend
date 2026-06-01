@@ -1,0 +1,41 @@
+.app-nav {
+  $nav-border: rgba(148, 163, 184, 0.28);
+  $button-bg: #2f3f74;
+  $button-border: #42599d;
+  $button-hover: #273764;
+  $button-text: #eef2ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-bottom: 1px solid $nav-border;
+  background: transparent;
+
+  .nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    border: 1px solid $button-border;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $button-text;
+    background-color: $button-bg;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.22);
+    transition: background-color 0.15s, transform 0.08s, box-shadow 0.15s;
+
+    &:hover {
+      background-color: $button-hover;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.28);
+    }
+  }
+}
+
+.app-content {
+  padding: 1.25rem;
+}
